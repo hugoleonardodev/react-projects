@@ -1,11 +1,11 @@
 import './App.css';
 
-function App() {
+function Pokedex() {
   return (
-    <div className="App">
+    <div className="Pokedex">
       <h1>My Pokedex</h1>
     </div>
   );
 }
 
-export default App;
+export default Pokedex;
