@@ -2,21 +2,15 @@ import React, { Component } from 'react';
 // import { Switch, Route, Link } from 'react-router-dom';
 
 import './App.css';
+import parse from 'html-react-parser';
 
 class App extends Component {
-  // static aleinsShows = async () => {
-  //   var req = new Request('http://api.tvmaze.com/search/shows?q=aliens');
-  //   let data;
-  //   await fetch(req)
-  //     .then((response) => response.json())
-  //     .then((result) =>  data = result);
-  //   return data;
-  // };
-
   constructor(props) {
     super(props);
     this.state = { 
-      value: []
+      shows: [],
+      query: '',
+      favorite: []
     };
   }
 
@@ -25,15 +19,26 @@ class App extends Component {
   }
 
   async fetchShows() {
-    fetch('http://api.tvmaze.com/search/shows?q=aliens')
+    await fetch('http://api.tvmaze.com/search/shows?q=aliens')
       .then((response) => response.json())
-      .then((result) =>  this.setState({ value: result }))
+      .then((result) => this.setState({ shows: result }))
   }
+
   render() {
-    console.log(this.state.value)
+    console.log(this.state.shows)
+    const { shows } = this.state;
     return (
       <div className="App">
         <h1>TV Show Finder CRUD</h1>
+        {shows.map(show => (
+          <div>
+            {show.show.name}
+            {parse(show.show.summary)}
+            {console.log(show.show.image)}
+            {show.show.image !== null ? <img src={show.show.image.medium} alt={show.show.name} /> : <div>No pictures available</div>}
+            {/* <img src={show.show.image.medium} alt={show.show.name} /> */}
+          </div>
+        ))}
       </div>
     );
   }
