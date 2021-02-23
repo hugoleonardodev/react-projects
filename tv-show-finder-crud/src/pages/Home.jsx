@@ -5,20 +5,18 @@ import { connect } from 'react-redux';
 
 class Home extends React.Component {
   componentDidMount() {
-    const { fetchShows } = this.props;
+    const { fetchShows, query } = this.props;
     fetchShows(); 
-    // enviando a action fetchMovies
   }
+
   render() {
     const { shows, fetching } = this.props;
-    console.log(fetching)
-    console.log(shows)
+  
     return (
       <div className="App">
         <h1>TV Show Finder CRUD</h1>
-        {fetching === false ? shows.map((show) => (
+        {!fetching ? shows.map((show) => (
           <div>
-            {console.log(show)}
             {show.show.name}
             {parse(show.show.summary)}
             {show.show.image !== null ? (
@@ -31,7 +29,6 @@ class Home extends React.Component {
       </div>
     );
   }
-
 } 
 
 const mapStateToProps = (state) => ({
@@ -41,19 +38,10 @@ const mapStateToProps = (state) => ({
   fetching: state.fetching
 });
 
+ // passar query aqui ! (query) => dispatch(fetchShows(query))
+ // depois passar como props
 const mapDispatchToProps = (dispatch) => ({
   fetchShows: () => dispatch(fetchShows())
-}); // passar query aqui !
+}); 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);
-
-// mapeia o state global e passa através de props
-// const mapStateToProps = (state) => ({
-//   signalColor: state.trafficSignalReducer.signal.color,
-// });
-// mapeia a função que altera o state global e qual propriedade alterar
-// const mapDispatchToProps = (dispatch) => ({
-//   changeSignal: (payload) => dispatch(changeSignal(payload)),
-// });
-// conecta map e dispatch
-// export default connect(mapStateToProps, mapDispatchToProps)(TrafficSignal);
