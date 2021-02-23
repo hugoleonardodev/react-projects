@@ -12,9 +12,9 @@ const receiveShows = (shows) => ({
 
 // action creator que retorna uma função, possível por conta do pacote redux-thunk
 export function fetchShows() {
-  return (dispatch) => { // thunk declarado
+  return async (dispatch) => { // thunk declarado
     dispatch(requestShows());
-    return fetch('http://api.tvmaze.com/search/shows?q=aliens')
+    return await fetch('http://api.tvmaze.com/search/shows?q=aliens')
       .then((response) => response.json())
       .then((shows) => dispatch(receiveShows(shows)));
   };

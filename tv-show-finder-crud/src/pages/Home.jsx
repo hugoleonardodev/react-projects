@@ -3,33 +3,42 @@ import parse from "html-react-parser";
 import { fetchShows } from '../store/actionCreators';
 import { connect } from 'react-redux';
 
-const Home = (props) => {
-  console.log(props)
-  const { shows } = props;
-  return (
-    <div className="App">
-      <h1>TV Show Finder CRUD</h1>
-      {/* {shows.length > 0 ? shows.map((show) => (
-        <div>
-          {show.show.name}
-          {parse(show.show.summary)}
-          {console.log(show.show.image)}
-          {show.show.image !== null ? (
-            <img src={show.show.image.medium} alt={show.show.name} />
-          ) : (
-            <div>No pictures available</div>
-          )}
-        </div>
-      )) : <div />} */}
-    </div>
-  );
+class Home extends React.Component {
+  componentDidMount() {
+    const { fetchShows } = this.props;
+    fetchShows(); 
+    // enviando a action fetchMovies
+  }
+  render() {
+    const { shows, fetching } = this.props;
+    console.log(fetching)
+    console.log(shows)
+    return (
+      <div className="App">
+        <h1>TV Show Finder CRUD</h1>
+        {fetching === false ? shows.map((show) => (
+          <div>
+            {console.log(show)}
+            {show.show.name}
+            {parse(show.show.summary)}
+            {show.show.image !== null ? (
+              <img src={show.show.image.medium} alt={show.show.name} />
+            ) : (
+              <div>No pictures available</div>
+            )}
+          </div>
+        )) : <div />}
+      </div>
+    );
+  }
+
 } 
 
 const mapStateToProps = (state) => ({
   query: state.query,
   shows: state.shows,
   favorites: state.favorites,
-  fetching: state.isFetching
+  fetching: state.fetching
 });
 
 const mapDispatchToProps = (dispatch) => ({

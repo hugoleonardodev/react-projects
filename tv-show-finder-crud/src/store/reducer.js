@@ -10,9 +10,9 @@ const initialState = {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case REQUEST_SHOWS:
-      return { ...state, shows: [...state.shows, action.shows] };
+      return { ...state, fetching: true }; // need fix
     case RECEIVE_SHOWS:
-      return { ...state, shows: [...state.shows, action.shows] };
+      return { ...state, shows: action.shows, fetching: false };
     default:
       return state;
   }
