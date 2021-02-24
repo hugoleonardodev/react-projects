@@ -3,7 +3,7 @@ export const RECEIVE_SHOWS = 'RECEIVE_SHOWS';
 
 const requestShows = () => ({
   type: REQUEST_SHOWS,
-  query: ""
+  query: ''
 });
 
 const receiveShows = (shows) => ({

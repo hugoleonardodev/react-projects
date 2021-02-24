@@ -3,6 +3,7 @@ import parse from "html-react-parser";
 import { fetchShows } from '../store/actions/fetchShows';
 import { connect } from 'react-redux';
 import SearchField from '../components/SearchField'
+import CardsLayout from "../components/CardsLayout";
 
 class Home extends React.Component {
   constructor(props) {
@@ -10,16 +11,18 @@ class Home extends React.Component {
   }
   componentDidMount() {
     const { fetchShows, query } = this.props;
-    fetchShows(); 
+    if(query === "") {
+      fetchShows("aliens")
+    }
   }
 
   render() {
-    const { shows, fetching } = this.props;
+    const { shows, fetching, favorites } = this.props;
     console.log(this.props)
     return (
       <div className="App">
         <SearchField />
-        {fetching ? shows.map((show) => (
+        {/* {fetching ? shows.map((show) => (
           <div>
             {show.show.name}
             {parse(show.show.summary)}
@@ -29,7 +32,8 @@ class Home extends React.Component {
               <div>No pictures available</div>
             )}
           </div>
-        )) : <div>Loading...</div>}
+        )) : <div>Loading...</div>} */}
+        <CardsLayout shows={shows} fetching={fetching} favorites={favorites}/>
       </div>
     );
   }

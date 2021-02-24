@@ -1,7 +1,7 @@
 import { RECEIVE_SHOWS, REQUEST_SHOWS } from '../actions/fetchShows';
 // estado inicial dos carros que vai junto com o outro estado no objeto do estado global
 const initialState = {
-  // query: "",
+  query: "aliens",
   shows: [],
   favorites: [],
   fetching: false
