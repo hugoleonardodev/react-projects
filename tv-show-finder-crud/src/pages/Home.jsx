@@ -6,14 +6,11 @@ import CardsLayout from "../components/CardsLayout";
 import { addToFavorites } from "../store/actions/addToFavorites";
 
 class Home extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount() {
     const { fetchShows, favorites } = this.props;
     favorites.length > 0
-      ? addToFavorites(localStorage.getItem("favorites"))
-      : localStorage.setItem("favorites", favorites);
+      ? addToFavorites(JSON.parse(localStorage.getItem("favorites")))
+      : localStorage.setItem("favorites", JSON.stringify(favorites));
     fetchShows();
   }
   componentDidUpdate() {

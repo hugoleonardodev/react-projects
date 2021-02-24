@@ -1,10 +1,10 @@
-import { RECEIVE_SHOWS, REQUEST_SHOWS } from '../actions/fetchShows';
+import { RECEIVE_SHOWS, REQUEST_SHOWS } from "../actions/fetchShows";
 // estado inicial dos carros que vai junto com o outro estado no objeto do estado global
 const initialState = {
-  query: "aliens",
+  // query: "aliens",
   shows: [],
   // favorites: [],
-  fetching: false
+  fetching: false,
 };
 // reducer que executa a action e alter de fato o estado inicial dos carros
 export default function fetchShowsReducer(state = initialState, action) {
