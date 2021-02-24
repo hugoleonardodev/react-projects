@@ -5,6 +5,9 @@ import { connect } from 'react-redux';
 import SearchField from '../components/SearchField'
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+  }
   componentDidMount() {
     const { fetchShows, query } = this.props;
     fetchShows(); 
@@ -33,10 +36,10 @@ class Home extends React.Component {
 } 
 
 const mapStateToProps = (state) => ({
-  query: state.query,
-  shows: state.shows,
-  favorites: state.favorites,
-  fetching: state.fetching
+  query: state.fetchShowsReducer.query,
+  shows: state.fetchShowsReducer.shows,
+  favorites: state.fetchShowsReducer.favorites,
+  fetching: state.fetchShowsReducer.fetching
 });
 
  // passar query aqui ! (query) => dispatch(fetchShows(query))
