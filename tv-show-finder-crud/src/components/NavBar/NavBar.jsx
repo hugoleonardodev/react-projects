@@ -7,7 +7,7 @@ import {
   Nav,
   NavItem,
   NavLink,
-  NavbarBrand
+  NavbarBrand,
 } from "reactstrap";
 import Logo from "./Logo";
 

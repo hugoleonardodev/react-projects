@@ -1,18 +1,18 @@
-import { ADD_TO_FAVORITES } from "../actions/addToFavorites";
+import { FILTER_FAVORITES_READ } from "../actions/filterFavoritesRead";
 import { defineState } from "redux-localstore";
 
 const defaultState = {
-  favorites: [],
+  filter: "",
 };
 
-const initialState = defineState(defaultState)("addToFavoritesReducer");
+const initialState = defineState(defaultState)("filterFavoritesReadReducer");
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case ADD_TO_FAVORITES:
+    case FILTER_FAVORITES_READ:
       return {
         ...state,
-        favorites: action.favorites,
+        filter: action.filter,
       };
     default:
       return state;

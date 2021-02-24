@@ -1,7 +1,4 @@
 import React from "react";
-import { fetchShows } from "../store/actions/fetchShows";
-import { inputQuery } from "../store/actions/inputQuery";
-import { connect } from "react-redux";
 import {
   Container,
   Row,
@@ -107,17 +104,4 @@ const CardsLayout = (props) => {
   );
 };
 
-// const mapStateToProps = (state) => ({
-//   shows: state.fetchShowsReducer.query,
-// });
-
-//  // passar query aqui ! (query) => dispatch(fetchShows(query))
-//  // depois passar como props
-// const mapDispatchToProps = (dispatch) => ({
-//   fetchShows: (query) => dispatch(fetchShows(query)),
-//   inputQuery: (query) => dispatch(inputQuery(query))
-// });
-
 export default CardsLayout;
-
-// export default connect(mapStateToProps, mapDispatchToProps)(CardsLayout);

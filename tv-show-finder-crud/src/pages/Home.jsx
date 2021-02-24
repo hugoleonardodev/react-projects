@@ -1,26 +1,16 @@
 import React from "react";
 import { fetchShows } from "../store/actions/fetchShows";
 import { connect } from "react-redux";
-import SearchField from "../components/SearchField";
-import CardsLayout from "../components/CardsLayout";
+import SearchField from "../components/Home/SearchField";
+import CardsLayout from "../components/Home/CardsLayout";
 import { addToFavorites } from "../store/actions/addToFavorites";
 
 class Home extends React.Component {
   componentDidMount() {
-    const { fetchShows, favorites } = this.props;
-    favorites.length > 0
-      ? addToFavorites(JSON.parse(localStorage.getItem("favorites")))
-      : localStorage.setItem("favorites", JSON.stringify(favorites));
+    const { fetchShows } = this.props;
     fetchShows();
   }
-  // componentDidUpdate() {
-  //   const { favorites } = this.props;
-  //   localStorage.setItem("favorites", JSON.stringify(favorites));
-  // }
-  // componentWillUnmount() {
-  //   const { favorites } = this.props;
-  //   localStorage.setItem("favorites", JSON.stringify(favorites));
-  // }
+
   render() {
     const { shows, fetching, favorites, addToFavorites } = this.props;
     console.log(this.props);
@@ -45,8 +35,6 @@ const mapStateToProps = (state) => ({
   fetching: state.fetchShowsReducer.fetching,
 });
 
-// passar query aqui ! (query) => dispatch(fetchShows(query))
-// depois passar como props
 const mapDispatchToProps = (dispatch) => ({
   fetchShows: () => dispatch(fetchShows()),
   addToFavorites: (favorites, show) =>
