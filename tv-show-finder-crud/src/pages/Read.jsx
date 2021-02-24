@@ -6,35 +6,27 @@ import { addToFavorites } from "../store/actions/addToFavorites";
 import { filterFavoritesRead } from "../store/actions/filterFavoritesRead";
 import FilterField from "../components/Read/FilterField";
 
-class Read extends React.Component {
-  // componentDidMount() {
-  //   const { fetchShows, favorites } = this.props;
-  //   // favorites.length > 0
-  //   //   ? addToFavorites(JSON.parse(localStorage.getItem("favorites")))
-  //   //   : localStorage.setItem("favorites", JSON.stringify(favorites));
-  //   fetchShows();
-  // }
-  render() {
-    const { filter, favorites, filterFavoritesRead } = this.props;
-    console.log(this.props);
-    return (
-      <div className="App">
-        <FilterField
-          filter={filter}
-          favorites={favorites}
-          filterFavoritesRead={filterFavoritesRead}
-        />
-        <CardsLayout
-          shows={favorites}
-          fetching={true}
-          favorites={favorites}
-          // addToFavorites={addToFavorites}
-          filter={filter}
-        />
-      </div>
-    );
-  }
-}
+const Read = (props) => {
+  const { filter, favorites, filterFavoritesRead } = props;
+  console.log(props);
+
+  return (
+    <div className="App">
+      <FilterField
+        filter={filter}
+        favorites={favorites}
+        filterFavoritesRead={filterFavoritesRead}
+      />
+      <CardsLayout
+        shows={favorites}
+        fetching={true}
+        favorites={favorites}
+        // addToFavorites={addToFavorites}
+        filter={filter}
+      />
+    </div>
+  );
+};
 
 const mapStateToProps = (state) => ({
   a: console.log(state),

@@ -262,7 +262,7 @@ const shows = [
 
 let row = [];
 const unflat = shows.reduce((acc, cur, index) => {
-  if(shows.indexOf(cur) % 3 !== 0 || shows.indexOf(cur) === 0) {
+  if (shows.indexOf(cur) % 3 !== 0 || shows.indexOf(cur) === 0) {
     row.push(cur);
   } else {
     acc.push(row);
@@ -271,4 +271,28 @@ const unflat = shows.reduce((acc, cur, index) => {
   return acc;
 }, []);
 
-console.log(unflat);
+// console.log(unflat);
+// const byEntries = (show, query) => {
+//   JSON.stringify(Object.entries(show[0].show))
+//     .toLocaleLowerCase()
+//     .includes(query);
+// };
+
+// const filtering = shows.filter((show) => {
+//   byEntries();
+// });
+
+const fruits = ["apple", "banana", "grapes", "mango", "orange"];
+
+/**
+ * Filter array items based on search criteria (query)
+ */
+const filterItems = (arr, query) => {
+  return arr.filter(
+    (el) =>
+      JSON.stringify(el.show).toLowerCase().indexOf(query.toLowerCase()) !== -1
+  );
+};
+
+console.log(filterItems(shows, "Running")); // ['apple', 'grapes']
+// console.log(filterItems(fruits, 'an'))  // ['banana', 'mango', 'orange']

@@ -15,14 +15,26 @@ import {
 
 const CardsLayout = (props) => {
   let row = [];
-  const { shows, fetching, favorites, addToFavorites } = props;
+
+  const filterItems = (arr, query) => {
+    return arr.filter(
+      (el) =>
+        JSON.stringify(el.show).toLowerCase().indexOf(query.toLowerCase()) !==
+        -1
+    );
+  };
+
+  const { fetching, favorites, addToFavorites, filter } = props;
 
   return (
     <Container>
-      {fetching && shows.length > 1 ? (
-        shows
+      {fetching && favorites.length > 1 ? (
+        filterItems(favorites, filter)
           .reduce((acc, cur, colIndex) => {
-            if (shows.indexOf(cur) % 4 !== 0 || shows.indexOf(cur) === 0) {
+            if (
+              favorites.indexOf(cur) % 4 !== 0 ||
+              favorites.indexOf(cur) === 0
+            ) {
               row.push(cur);
             } else {
               acc.push(row);

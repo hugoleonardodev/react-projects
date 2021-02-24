@@ -2,7 +2,7 @@ import { FILTER_FAVORITES_READ } from "../actions/filterFavoritesRead";
 import { defineState } from "redux-localstore";
 
 const defaultState = {
-  filter: "",
+  filter: "a",
 };
 
 const initialState = defineState(defaultState)("filterFavoritesReadReducer");
