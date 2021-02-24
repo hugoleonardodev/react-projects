@@ -16,7 +16,7 @@ import {
 const CardsLayout = (props) => {
   let row = [];
   const { shows, fetching, favorites, addToFavorites } = props;
-  console.log(props);
+
   return (
     <Container>
       {fetching && shows.length > 1 ? (

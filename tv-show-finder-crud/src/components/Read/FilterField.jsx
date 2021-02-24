@@ -3,6 +3,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { fetchShows } from "../../store/actions/fetchShows";
 import { inputQuery } from "../../store/actions/inputQuery";
 import { connect } from "react-redux";
+import filterFavoritesRead from "../../store/reducers/filterFavoritesReadReducer";
 
 const FilterField = (props) => {
   const { filter, favorites, filterFavoritesRead } = props;
@@ -16,6 +17,7 @@ const FilterField = (props) => {
             type="text"
             name="query"
             id="query"
+            // value={filter}
             placeholder="Name, Genres, Running, etc"
             onChange={(e) => filterFavoritesRead(e.target.value)}
           />
@@ -28,14 +30,13 @@ const FilterField = (props) => {
 
 // const mapStateToProps = (state) => ({
 //   a: console.log(state),
-//   query: state.inputQueryReducer.query,
+//   filter: state.filterFavoritesReadReducer.filter,
 // });
 
 // const mapDispatchToProps = (dispatch) => ({
-//   fetchShows: (query) => dispatch(fetchShows(query)),
-//   inputQuery: (query) => dispatch(inputQuery(query)),
+//   filterFavoritesRead: (input) => dispatch(filterFavoritesRead(input)),
 // });
 
-// export default connect(mapStateToProps, mapDispatchToProps)(SearchField);
+// export default connect(mapStateToProps, mapDispatchToProps)(FilterField);
 
 export default FilterField;

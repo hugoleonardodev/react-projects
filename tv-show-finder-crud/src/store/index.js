@@ -7,7 +7,7 @@ import thunk from "redux-thunk";
 import fetchShowsReducer from "./reducers/fetchShowsReducer";
 import inputQueryReducer from "./reducers/inputQueryReducer";
 import addToFavoritesReducer from "./reducers/addToFavoritesReducer";
-import filterFavoritesReadReducer from "./reducers/filterFavoritesRead";
+import filterFavoritesReadReducer from "./reducers/filterFavoritesReadReducer";
 // store com tootreducer é um estado global com os dois estados como filho (carsReducer e trafficSignalReducer)
 // const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 // const store = createStore(reducer, applyMiddleware(thunk));

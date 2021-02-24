@@ -8,6 +8,7 @@ const defaultState = {
 const initialState = defineState(defaultState)("filterFavoritesReadReducer");
 
 export default (state = initialState, action) => {
+  console.log(action);
   switch (action.type) {
     case FILTER_FAVORITES_READ:
       return {

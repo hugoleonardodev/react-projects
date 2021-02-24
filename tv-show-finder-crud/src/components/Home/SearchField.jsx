@@ -11,24 +11,24 @@ const SearchField = (props) => {
   return (
     <Form inline>
       <FormGroup>
-        <Label for="exampleEmail">
+        <Label for="exampleEmail" style={{ marginRight: "20px" }}>
           Type query and click Find
-          <Input
-            type="text"
-            name="query"
-            id="query"
-            placeholder="aliens, cars, politics, etc"
-            onChange={(e) => inputQuery(e.target.value)}
-          />
         </Label>
+        <Input
+          type="text"
+          name="query"
+          id="query"
+          placeholder="aliens, cars, politics, etc"
+          onChange={(e) => inputQuery(e.target.value)}
+        />
+        <Button onClick={() => fetchShows(query)}>Find</Button>
       </FormGroup>{" "}
-      <Button onClick={() => fetchShows(query)}>Find</Button>
     </Form>
   );
 };
 
 const mapStateToProps = (state) => ({
-  a: console.log(state),
+  // a: console.log(state),
   query: state.inputQueryReducer.query,
 });
 

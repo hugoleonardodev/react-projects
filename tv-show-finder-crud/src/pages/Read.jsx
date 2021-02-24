@@ -3,7 +3,7 @@ import { connect } from "react-redux";
 import SearchField from "../components/Read/FilterField";
 import CardsLayout from "../components/Read/CardsLayout";
 import { addToFavorites } from "../store/actions/addToFavorites";
-import filterFavoritesRead from "../store/reducers/filterFavoritesRead";
+import { filterFavoritesRead } from "../store/actions/filterFavoritesRead";
 import FilterField from "../components/Read/FilterField";
 
 class Read extends React.Component {

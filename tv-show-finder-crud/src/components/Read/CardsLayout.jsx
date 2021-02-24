@@ -16,7 +16,7 @@ import {
 const CardsLayout = (props) => {
   let row = [];
   const { shows, fetching, favorites, addToFavorites } = props;
-  console.log(props);
+
   return (
     <Container>
       {fetching && shows.length > 1 ? (
@@ -70,10 +70,6 @@ const CardsLayout = (props) => {
                         </CardText>
                       )}
                       <CardText>{show.show.officialSite}</CardText>
-                      {console.log(favorites)}
-                      {console.log(
-                        favorites.some((e) => e.score === show.score)
-                      )}
                       <Button
                         onClick={() => addToFavorites(favorites, show)}
                         disabled={
