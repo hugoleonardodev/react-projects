@@ -13,6 +13,7 @@ import {
   CardSubtitle,
   CardText,
   Button,
+  CardFooter,
 } from "reactstrap";
 
 const CardsLayout = (props) => {
@@ -83,6 +84,13 @@ const CardsLayout = (props) => {
                         Add to Favorites
                       </Button>
                     </CardBody>
+                    {favorites.find((e) => e.show === show.show) ? (
+                      <CardFooter style={{ color: "#764abc" }}>
+                        Favorite
+                      </CardFooter>
+                    ) : (
+                      <div />
+                    )}
                   </Card>
                 </Col>
               ))}
