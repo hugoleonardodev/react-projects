@@ -2,11 +2,14 @@ export const REQUEST_SHOWS = 'REQUEST_SHOWS';
 export const RECEIVE_SHOWS = 'RECEIVE_SHOWS';
 
 const requestShows = () => ({
-  type: REQUEST_SHOWS});
+  type: REQUEST_SHOWS,
+  query: ""
+});
 
 const receiveShows = (shows) => ({
   type: RECEIVE_SHOWS,
-  shows});
+  shows
+});
 
 // action creator returns a function, available in redux-thunk package
 export function fetchShows() {

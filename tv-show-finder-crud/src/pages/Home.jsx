@@ -1,7 +1,8 @@
 import React from "react";
 import parse from "html-react-parser";
-import { fetchShows } from '../store/actionCreators';
+import { fetchShows } from '../store/actions/fetchShows';
 import { connect } from 'react-redux';
+import SearchField from '../components/SearchField'
 
 class Home extends React.Component {
   componentDidMount() {
@@ -11,11 +12,11 @@ class Home extends React.Component {
 
   render() {
     const { shows, fetching } = this.props;
-  
+    console.log(this.props)
     return (
       <div className="App">
-        <h1>TV Show Finder CRUD</h1>
-        {!fetching ? shows.map((show) => (
+        <SearchField />
+        {fetching ? shows.map((show) => (
           <div>
             {show.show.name}
             {parse(show.show.summary)}
@@ -25,7 +26,7 @@ class Home extends React.Component {
               <div>No pictures available</div>
             )}
           </div>
-        )) : <div />}
+        )) : <div>Loading...</div>}
       </div>
     );
   }

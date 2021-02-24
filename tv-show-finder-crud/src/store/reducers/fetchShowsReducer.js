@@ -1,18 +1,18 @@
-import { RECEIVE_SHOWS, REQUEST_SHOWS } from './actionCreators';
+import { RECEIVE_SHOWS, REQUEST_SHOWS } from '../actions/fetchShows';
 // estado inicial dos carros que vai junto com o outro estado no objeto do estado global
 const initialState = {
-  query: "",
+  // query: "",
   shows: [],
   favorites: [],
-  fetching: true
+  fetching: false
 };
 // reducer que executa a action e alter de fato o estado inicial dos carros
-export default function reducer(state = initialState, action) {
+export default function fetchShowsReducer(state = initialState, action) {
   switch (action.type) {
     case REQUEST_SHOWS:
       return { ...state, fetching: true }; // need fix
     case RECEIVE_SHOWS:
-      return { ...state, shows: action.shows, fetching: false };
+      return { ...state, shows: action.shows, fetching: true };
     default:
       return state;
   }
