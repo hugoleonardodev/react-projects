@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 
 const SearchField = (props) => {
   const { fetchShows, query, inputQuery } = props;
+  console.log(query)
   return (
     <Form inline>
       <FormGroup>
@@ -21,19 +22,20 @@ const SearchField = (props) => {
           onChange={(e) => inputQuery(e.target.value)}
         />
       </FormGroup>{" "}
-      <Button onClick={() => fetchShows()}>Find</Button>
+      <Button onClick={() => fetchShows(query)}>Find</Button>
     </Form>
   );
 };
 
 const mapStateToProps = (state) => ({
-  query: state.query,
+  a: console.log(state),
+  query: state.inputQueryReducer.query,
 });
 
  // passar query aqui ! (query) => dispatch(fetchShows(query))
  // depois passar como props
 const mapDispatchToProps = (dispatch) => ({
-  fetchShows: () => dispatch(fetchShows()),
+  fetchShows: (query) => dispatch(fetchShows(query)),
   inputQuery: (query) => dispatch(inputQuery(query))
 }); 
 

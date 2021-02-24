@@ -36,7 +36,7 @@ class Home extends React.Component {
 } 
 
 const mapStateToProps = (state) => ({
-  query: state.fetchShowsReducer.query,
+  query: state.inputQueryReducer.query,
   shows: state.fetchShowsReducer.shows,
   favorites: state.fetchShowsReducer.favorites,
   fetching: state.fetchShowsReducer.fetching
