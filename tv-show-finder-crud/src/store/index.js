@@ -5,6 +5,7 @@ import thunk from 'redux-thunk'
 // import rootreducer from './reducers/index';
 import fetchShowsReducer from './reducers/fetchShowsReducer'
 import inputQueryReducer from './reducers/inputQueryReducer'
+import addToFavoritesReducer from './reducers/addToFavoritesReducer';
 // store com tootreducer é um estado global com os dois estados como filho (carsReducer e trafficSignalReducer)
 // const store = createStore(reducer, window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__());
 // const store = createStore(reducer, applyMiddleware(thunk));
@@ -20,6 +21,6 @@ const enhancer = composeEnhancers(
   applyMiddleware(thunk),
   // other store enhancers if any
 );
-const store = createStore(combineReducers({ fetchShowsReducer, inputQueryReducer }) , enhancer);
+const store = createStore(combineReducers({ fetchShowsReducer, inputQueryReducer, addToFavoritesReducer }) , enhancer);
 
 export default store;

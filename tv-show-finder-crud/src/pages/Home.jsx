@@ -1,9 +1,9 @@
 import React from "react";
-import parse from "html-react-parser";
 import { fetchShows } from '../store/actions/fetchShows';
 import { connect } from 'react-redux';
 import SearchField from '../components/SearchField'
 import CardsLayout from "../components/CardsLayout";
+import { addToFavorites } from "../store/actions/addToFavorites";
 
 class Home extends React.Component {
   constructor(props) {
@@ -17,23 +17,12 @@ class Home extends React.Component {
   }
 
   render() {
-    const { shows, fetching, favorites } = this.props;
+    const { shows, fetching, favorites, addToFavorites } = this.props;
     console.log(this.props)
     return (
       <div className="App">
         <SearchField />
-        {/* {fetching ? shows.map((show) => (
-          <div>
-            {show.show.name}
-            {parse(show.show.summary)}
-            {show.show.image !== null ? (
-              <img src={show.show.image.medium} alt={show.show.name} />
-            ) : (
-              <div>No pictures available</div>
-            )}
-          </div>
-        )) : <div>Loading...</div>} */}
-        <CardsLayout shows={shows} fetching={fetching} favorites={favorites}/>
+        <CardsLayout shows={shows} fetching={fetching} favorites={favorites} addToFavorites={addToFavorites}/>
       </div>
     );
   }
@@ -42,14 +31,15 @@ class Home extends React.Component {
 const mapStateToProps = (state) => ({
   query: state.inputQueryReducer.query,
   shows: state.fetchShowsReducer.shows,
-  favorites: state.fetchShowsReducer.favorites,
+  favorites: state.addToFavoritesReducer.favorites,
   fetching: state.fetchShowsReducer.fetching
 });
 
  // passar query aqui ! (query) => dispatch(fetchShows(query))
  // depois passar como props
 const mapDispatchToProps = (dispatch) => ({
-  fetchShows: () => dispatch(fetchShows())
+  fetchShows: () => dispatch(fetchShows()),
+  addToFavorites: (favorites, show) => dispatch(addToFavorites(favorites, show))
 }); 
 
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

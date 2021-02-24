@@ -17,14 +17,13 @@ import {
 
 const CardsLayout = (props) => {
   let row = [];
-  const { shows, fetching, favorites } = props;
-  console.log(shows);
-  console.log(fetching)
+  const { shows, fetching, favorites, addToFavorites } = props;
+  console.log(props)
   return (
     <Container>
       {fetching && shows.length > 1 ? shows
         .reduce((acc, cur, colIndex) => {
-          if (shows.indexOf(cur) % 3 !== 0 || shows.indexOf(cur) === 0) {
+          if (shows.indexOf(cur) % 4 !== 0 || shows.indexOf(cur) === 0) {
             row.push(cur);
           } else {
             acc.push(row);
@@ -67,7 +66,7 @@ const CardsLayout = (props) => {
                       </CardText>
                     )}
                     <CardText>{show.show.officialSite}</CardText>
-                    <Button>Add to Favorites</Button>
+                    <Button onClick={() => addToFavorites(favorites, show)}>Add to Favorites</Button>
                   </CardBody>
                 </Card>
               </Col>

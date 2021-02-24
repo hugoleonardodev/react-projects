@@ -3,7 +3,7 @@ import { RECEIVE_SHOWS, REQUEST_SHOWS } from '../actions/fetchShows';
 const initialState = {
   query: "aliens",
   shows: [],
-  favorites: [],
+  // favorites: [],
   fetching: false
 };
 // reducer que executa a action e alter de fato o estado inicial dos carros
