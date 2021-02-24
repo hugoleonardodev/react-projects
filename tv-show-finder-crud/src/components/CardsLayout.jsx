@@ -73,10 +73,14 @@ const CardsLayout = (props) => {
                         </CardText>
                       )}
                       <CardText>{show.show.officialSite}</CardText>
+                      {console.log(favorites)}
+                      {console.log(
+                        favorites.some((e) => e.score === show.score)
+                      )}
                       <Button
                         onClick={() => addToFavorites(favorites, show)}
                         disabled={
-                          favorites.find((e) => e.show === show.show)
+                          favorites.some((e) => e.score === show.score)
                             ? true
                             : false
                         }
@@ -84,7 +88,7 @@ const CardsLayout = (props) => {
                         Add to Favorites
                       </Button>
                     </CardBody>
-                    {favorites.find((e) => e.show === show.show) ? (
+                    {favorites.some((e) => e.score === show.score) ? (
                       <CardFooter style={{ color: "#764abc" }}>
                         Favorite
                       </CardFooter>

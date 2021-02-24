@@ -13,14 +13,14 @@ class Home extends React.Component {
       : localStorage.setItem("favorites", JSON.stringify(favorites));
     fetchShows();
   }
-  componentDidUpdate() {
-    const { favorites } = this.props;
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  }
-  componentWillUnmount() {
-    const { favorites } = this.props;
-    localStorage.setItem("favorites", JSON.stringify(favorites));
-  }
+  // componentDidUpdate() {
+  //   const { favorites } = this.props;
+  //   localStorage.setItem("favorites", JSON.stringify(favorites));
+  // }
+  // componentWillUnmount() {
+  //   const { favorites } = this.props;
+  //   localStorage.setItem("favorites", JSON.stringify(favorites));
+  // }
   render() {
     const { shows, fetching, favorites, addToFavorites } = this.props;
     console.log(this.props);
