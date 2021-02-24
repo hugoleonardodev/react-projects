@@ -3,6 +3,7 @@ import { Button, Form, FormGroup, Label, Input } from "reactstrap";
 import { fetchShows } from "../../store/actions/fetchShows";
 import { inputQuery } from "../../store/actions/inputQuery";
 import { connect } from "react-redux";
+import Logo from "../NavBar/Logo";
 
 const SearchField = (props) => {
   const { fetchShows, query, inputQuery } = props;
@@ -10,16 +11,16 @@ const SearchField = (props) => {
   return (
     <Form inline>
       <FormGroup>
-        <Label for="exampleEmail" hidden>
-          Query
+        <Label for="exampleEmail">
+          Type query and click Find
+          <Input
+            type="text"
+            name="query"
+            id="query"
+            placeholder="aliens, cars, politics, etc"
+            onChange={(e) => inputQuery(e.target.value)}
+          />
         </Label>
-        <Input
-          type="text"
-          name="query"
-          id="query"
-          placeholder="Find by query ex: aliens"
-          onChange={(e) => inputQuery(e.target.value)}
-        />
       </FormGroup>{" "}
       <Button onClick={() => fetchShows(query)}>Find</Button>
     </Form>

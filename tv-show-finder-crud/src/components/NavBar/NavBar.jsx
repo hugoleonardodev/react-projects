@@ -35,22 +35,22 @@ const NavBar = (props) => {
             </NavItem>
             <NavItem>
               <NavLink tag="div">
-                <Link to="/projects">Create</Link>
+                <Link to="/create">Create</Link>
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink tag="div">
-                <Link to="/contact">Read</Link>
+                <Link to="/read">Read</Link>
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink tag="div">
-                <Link to="/about">Delete</Link>
+                <Link to="/delete">Delete</Link>
               </NavLink>
             </NavItem>
             <NavItem>
               <NavLink tag="div">
-                <Link to="/about">Update</Link>
+                <Link to="/update">Update</Link>
               </NavLink>
             </NavItem>
           </Nav>
