@@ -23,35 +23,29 @@ const boardSpecialsIds = [
   ['delete', 'decimal', 'equals'],
 ];
 // const regex = /[+-/*]/;
-
-const handleNumberInputs = (
+function handleNumberInputs(
   displayString,
   setDisplay,
   number,
   evalString,
   setEval,
-) => {
+) {
   if (displayString === '0') {
-    console.log('0');
+    console.log(number);
     setEval(number);
     return number;
   }
   if (displayString.match(/[+-/*]/g) !== null) {
     console.log('inputNumber entrou no match');
     console.log(displayString);
-
     setEval(evalString + number);
-    // setDisplay(data);
-    // typeof display === 'string' && setEval([...evalString, display]);
     return number;
   }
+  console.log(displayString + number);
   console.log('saiu do inputNumber');
-  console.log(displayString);
-  console.log(number);
-
   setEval(evalString + number);
   return displayString + number;
-};
+}
 
 function RenderNumbers(displayString, setDisplay, evalString, setEval) {
   return (
@@ -85,33 +79,24 @@ function RenderNumbers(displayString, setDisplay, evalString, setEval) {
   );
 }
 
-const handleInputSpecials = (displayString, special, evalString, setEval) => {
+function handleInputSpecials(displayString, special, evalString, setEval) {
   console.log(special);
   if (special === 'C') {
     setEval('0');
     return '0';
   }
-  if (
-    // displayString !== special &&
-    evalString[evalString.length - 1].match(/[+-/*]/) === null
-  ) {
+  if (special === '0') {
+    setEval(evalString + special);
+    return displayString + special;
+  }
+  if (evalString[evalString.length - 1].match(/[+-/*]/) === null) {
     console.log('inputSpecial entrou no match');
-    // const arr = displayString.split('');
-    // arr.pop();
-    // arr.join('');
     setEval(evalString + special);
     return special;
   }
   console.log('inputSpecial saiu');
-  // if (displayString.match(/[+-/*]/g) !== null) {
   return special;
-  // }
-  // typeof displayString !== 'string' &&
-  //   displayString !== special &&
-  //   setEval([...evalString, displayString]);
-  // return special;
-  // : [display + special];
-};
+}
 
 function RenderSpecials(displayString, setDisplay, evalString, setEval) {
   return (
@@ -147,14 +132,7 @@ function RenderSpecials(displayString, setDisplay, evalString, setEval) {
 function JavaScriptCalculator() {
   const [displayString, setDisplay] = useState('0');
   const [evalString, setEval] = useState('0');
-  // const [change, setChange] = useState(false);
-  // useEffect(() => {
-  //   setEval(...display)
-  // }, [])
-  // useEffect(() => {
-  //   setEval([...evalString, display]);
-  //   console.log(evalString);
-  // }, [display]);
+
   return (
     <div className="App">
       <header className="App-header">
@@ -163,10 +141,10 @@ function JavaScriptCalculator() {
           <code>JavaScript Calculator</code>
         </p>
       </header>
-      <p>EVAL</p>
-      <p>{evalString}</p>
-      <p>DISPLAY</p>
-      <p id="display">{displayString}</p>
+      {/* <p>EVAL</p> */}
+      <p id="display">{evalString}</p>
+      {/* <p>DISPLAY</p> */}
+      <p>{displayString}</p>
       {RenderNumbers(displayString, setDisplay, evalString, setEval)}
       {RenderSpecials(displayString, setDisplay, evalString, setEval)}
     </div>

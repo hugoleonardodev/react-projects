@@ -5,9 +5,9 @@ import reportWebVitals from './reportWebVitals';
 import JavaScriptCalculator from './App';
 
 ReactDOM.render(
-  <React.StrictMode>
-    <JavaScriptCalculator />
-  </React.StrictMode>,
+  // <React.StrictMode>
+  <JavaScriptCalculator />,
+  // </React.StrictMode>,
   document.getElementById('root'),
 );
 
