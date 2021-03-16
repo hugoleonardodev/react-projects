@@ -37,7 +37,7 @@ const handleNumberInputs = (
     return number;
   }
   if (displayString.match(/[+-/*]/g) !== null) {
-    console.log('entrou no match');
+    console.log('inputNumber entrou no match');
     console.log(displayString);
 
     setEval(evalString + number);
@@ -45,7 +45,7 @@ const handleNumberInputs = (
     // typeof display === 'string' && setEval([...evalString, display]);
     return number;
   }
-  console.log('saiu do number');
+  console.log('saiu do inputNumber');
   console.log(displayString);
   console.log(number);
 
@@ -91,10 +91,21 @@ const handleInputSpecials = (displayString, special, evalString, setEval) => {
     setEval('0');
     return '0';
   }
-  if (displayString !== 'string' && displayString !== special) {
+  if (
+    // displayString !== special &&
+    evalString[evalString.length - 1].match(/[+-/*]/) === null
+  ) {
+    console.log('inputSpecial entrou no match');
+    // const arr = displayString.split('');
+    // arr.pop();
+    // arr.join('');
     setEval(evalString + special);
     return special;
   }
+  console.log('inputSpecial saiu');
+  // if (displayString.match(/[+-/*]/g) !== null) {
+  return special;
+  // }
   // typeof displayString !== 'string' &&
   //   displayString !== special &&
   //   setEval([...evalString, displayString]);
