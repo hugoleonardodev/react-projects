@@ -1,0 +1,13 @@
+// TDD baby steps
+
+01 - [ x ] File system and Routes
+02 - [ x ] Unit tests for Routes and Containers
+03 - [ x ] Write Login test cases
+04 - [ x ] Code Login Container
+05 - [ x ] Code Login Components
+06 - [ x ] Test Login: Refactoring if needed and step back
+07 - [  ] Write Foods test cases
+08 - [  ] Code Foods Container
+09 - [  ] Code Foods Components
+10 - [  ] Test Foods: Refactoring if needed and step back
+11 - [  ] Code header and configure Routes
