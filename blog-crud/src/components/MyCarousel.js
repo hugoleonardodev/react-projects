@@ -1,28 +1,62 @@
 import React, { Component } from 'react';
 import M from 'materialize-css';
 import 'materialize-css/dist/css/materialize.min.css';
-import one from '../assets/1.jpg';
-import two from '../assets/2.jpg';
-import three from '../assets/3.jpg';
-import four from '../assets/4.jpg';
-import five from '../assets/5.jpg';
+import { Link } from 'react-router-dom';
+import carouselInitialState from '../data/carouselInitialState';
 
 export default class MyCarousel extends Component {
-  componentDidMount() {
+  constructor(props) {
+    super(props);
+    this.state = {
+      articles: [],
+    };
+    this.getLocalStorage = this.getLocalStorage.bind(this);
+  }
+
+  getLocalStorage() {
+    const blog = JSON.parse(localStorage.getItem('blog'));
+    this.setState({
+      articles: blog.articles,
+    });
+  }
+
+  setLocalStorage() {
+    const blog = JSON.parse(localStorage.getItem('blog'));
+    if (blog === null) {
+      localStorage.setItem('blog', JSON.stringify(carouselInitialState));
+    }
+    console.log(blog);
+    this.getLocalStorage();
+  }
+
+  initMyCarousel() {
     const options = {
-      duration: 300,
+      duration: 500,
+      // fullWidth: true, // another version for the carousel
+      // numVisible: 10, // max five
       onCycleTo: () => {
         console.log('New Slide');
       },
     };
     M.Carousel.init(this.Carousel, options);
+  }
 
-    //Instance Plugin
-    // let instance = M.Carousel.getInstance(this.Carousel);
-    // instance.next(2);
+  initMyFloatingButtons() {
+    const options = {
+      position: 'top',
+    };
+    let toolTipElems = document.querySelectorAll('.tooltipped');
+    M.Tooltip.init(toolTipElems, options);
+  }
+
+  componentDidMount() {
+    this.initMyCarousel();
+    this.initMyFloatingButtons();
+    this.setLocalStorage();
   }
 
   render() {
+    const { articles } = this.state;
     return (
       <div>
         <div
@@ -31,21 +65,74 @@ export default class MyCarousel extends Component {
           }}
           className="carousel"
         >
-          <a className="carousel-item" href="https://www.google.com">
-            <img alt="1" src={one} />
-          </a>
-          <a className="carousel-item" href="https://www.google.com">
-            <img alt="2" src={two} />
-          </a>
-          <a className="carousel-item" href="https://www.google.com">
-            <img alt="3" src={three} />
-          </a>
-          <a className="carousel-item" href="https://www.google.com">
-            <img alt="4" src={four} />
-          </a>
-          <a className="carousel-item" href="https://www.google.com">
-            <img alt="5" src={five} />
-          </a>
+          {articles.length > 0 ? (
+            articles.slice(0, 5).map((article, index) => (
+              // <div>
+              <Link
+                className="tooltipped carousel-item"
+                data-tooltip={article.title}
+                to={article.route}
+                // key={'article-' + index.toString()}
+                // key={index}
+              >
+                <img alt={article.title} src={article.image} />
+              </Link>
+            ))
+          ) : (
+            <>
+              <Link
+                className="tooltipped carousel-item"
+                data-tooltip="1"
+                to="/update/1"
+              >
+                <img
+                  alt="1"
+                  src="https://eskipaper.com/images/landscape-photos-21.jpg"
+                />
+              </Link>
+              <Link
+                className="tooltipped carousel-item"
+                data-tooltip="2"
+                to="/update/2"
+              >
+                <img
+                  alt="2"
+                  src="https://www.wallpapertip.com/wmimgs/6-62055_nature-pictures-of-oil-paintings-landscape.jpg"
+                />
+              </Link>
+              <Link
+                className="tooltipped carousel-item"
+                data-tooltip="3"
+                to="/update/3"
+              >
+                <img
+                  alt="3"
+                  src="https://www.teahub.io/photos/full/54-547365_beautiful-landscape-wallpaper.jpg"
+                />
+              </Link>
+              <Link
+                className="tooltipped carousel-item"
+                data-tooltip="4"
+                to="/update/4"
+              >
+                <img
+                  alt="4"
+                  src="https://images.hdqwalls.com/download/pixel-landscape-dt-1600x1200.jpg"
+                />
+              </Link>
+              <Link
+                className="tooltipped carousel-item"
+                href="https://www.google.com"
+                data-tooltip="5"
+                to="/update/5"
+              >
+                <img
+                  alt="5"
+                  src="https://eskipaper.com/images/beautiful-winter-landscape-8.jpg"
+                />
+              </Link>
+            </>
+          )}
         </div>
       </div>
     );

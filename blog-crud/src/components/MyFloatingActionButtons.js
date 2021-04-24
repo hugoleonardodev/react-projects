@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import M from 'materialize-css';
-import 'materialize-css/dist/css/materialize.min.css';
-
+// import 'materialize-css/dist/css/materialize.min.css';
+// var buttonsElems;
+// var toolTipElems;
+var instance;
 export default class MyFloatingActionButtons extends Component {
   componentDidMount() {
     // M.AutoInit();
@@ -19,6 +21,13 @@ export default class MyFloatingActionButtons extends Component {
     // });
     let toolTipElems = document.querySelectorAll('.tooltipped');
     M.Tooltip.init(toolTipElems, options);
+    instance = M.Tooltip.getInstance(document.querySelector('.tooltipped'));
+  }
+
+  componentWillUnmount() {
+    // var elem = document.querySelectorAll('.tooltipped');
+    // var instance = M.Tooltip.instance.destroy();
+    instance.destroy();
   }
   render() {
     return (
