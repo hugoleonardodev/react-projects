@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import M from 'materialize-css';
 import MyImageInputText from '../components/MyImageInputText';
 import MyTitleInputText from '../components/MyTitleInputText';
+import MyTextAreaInput from '../components/MyTextAreaInput';
 
 export default class Update extends Component {
   constructor(props) {
@@ -36,9 +37,9 @@ export default class Update extends Component {
   }
   render() {
     const history = this.props;
-    console.log(history.location.pathname.split('/')[2]);
+    // console.log(history.location.pathname.split('/')[2]);
     const blog = JSON.parse(localStorage.getItem('blog'));
-    console.log(blog);
+    // console.log(blog);
     const { title, route, image, words } = this.state;
 
     return (
@@ -47,19 +48,6 @@ export default class Update extends Component {
         <div className="row">
           <form className="col s12">
             <div className="row">
-              {/* <div className="input-field col s6">
-                <i className="material-icons prefix">title</i>
-                <input
-                  className="validate"
-                  onChange={this.handleChange}
-                  value={title}
-                  name="title"
-                  type="text"
-                />
-                <label className="active" htmlFor="title">
-                  Title
-                </label>
-              </div> */}
               <MyTitleInputText
                 title={title}
                 handleChange={this.handleChange}
@@ -68,22 +56,9 @@ export default class Update extends Component {
                 image={image}
                 handleChange={this.handleChange}
               />
-              {/* <div className="input-field col s6">
-                <i className="material-icons prefix">insert_photo</i>
-                <input
-                  className="validate"
-                  onChange={this.handleChange}
-                  value={image}
-                  name="image"
-                  type="text"
-                />
-                <label className="active" htmlFor="image">
-                  Image URL
-                </label>
-              </div> */}
             </div>
             <div className="row">
-              <div className="input-field col s12">
+              {/* <div className="input-field col s12">
                 <i className="material-icons prefix">article</i>
                 <textarea
                   className="materialize-textarea"
@@ -94,7 +69,8 @@ export default class Update extends Component {
                 <label className="active" htmlFor="words">
                   Article
                 </label>
-              </div>
+              </div> */}
+              <MyTextAreaInput words={words} handleChange={this.handleChange} />
             </div>
           </form>
         </div>

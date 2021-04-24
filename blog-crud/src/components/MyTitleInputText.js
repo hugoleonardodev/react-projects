@@ -12,10 +12,10 @@ export default class MyTitleInputText extends Component {
             className="validate"
             onChange={handleChange}
             value={title}
-            name="image"
+            name="title"
             type="text"
           />
-          <label className="active" htmlFor="image">
+          <label className="active" htmlFor="title">
             Image URL
           </label>
         </div>
