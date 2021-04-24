@@ -1,4 +1,4 @@
-.home-title {
+.title {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -6,7 +6,7 @@
   font-weight: 500;
 }
 
-.home-recent {
+.description {
   display: flex;
   align-items: center;
   justify-content: center;

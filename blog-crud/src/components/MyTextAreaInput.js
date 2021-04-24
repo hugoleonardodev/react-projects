@@ -8,10 +8,12 @@ export default class MyTextAreaInput extends Component {
         <div className="input-field col s12">
           <i className="material-icons prefix">article</i>
           <textarea
-            className="materialize-textarea"
+            className="materialize-textarea validate"
             onChange={handleChange}
-            name="words"
             value={words}
+            name="words"
+            type="text"
+            id="words"
           />
           <label className="active" htmlFor="words">
             Article

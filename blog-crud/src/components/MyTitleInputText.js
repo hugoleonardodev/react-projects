@@ -14,9 +14,10 @@ export default class MyTitleInputText extends Component {
             value={title}
             name="title"
             type="text"
+            id="title"
           />
           <label className="active" htmlFor="title">
-            Image URL
+            Title
           </label>
         </div>
       </>

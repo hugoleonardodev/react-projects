@@ -14,6 +14,7 @@ export default class MyImageInputText extends Component {
             value={image}
             name="image"
             type="text"
+            id="image"
           />
           <label className="active" htmlFor="image">
             Image URL
