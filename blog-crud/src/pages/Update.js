@@ -27,8 +27,9 @@ export default class Update extends Component {
       [event.target.name]: event.target.value,
     });
   }
+
   componentDidMount() {
-    // M.updateTextFields();
+    // resizing text area accordly with words size
     M.textareaAutoResize(document.querySelector('.materialize-textarea'));
   }
   render() {

@@ -35,7 +35,7 @@ export default class MyCarousel extends Component {
       // fullWidth: true, // another version for the carousel
       // numVisible: 10, // max five
       onCycleTo: () => {
-        console.log('New Slide');
+        console.log('New Slide'); // callback when click on new slide
       },
     };
     M.Carousel.init(this.Carousel, options);
@@ -67,13 +67,11 @@ export default class MyCarousel extends Component {
         >
           {articles.length > 0 ? (
             articles.slice(0, 5).map((article, index) => (
-              // <div>
               <Link
                 className="tooltipped carousel-item"
                 data-tooltip={article.title}
                 to={article.route}
-                // key={'article-' + index.toString()}
-                // key={index}
+                // key={index} not rendering when key is enabled
               >
                 <img alt={article.title} src={article.image} />
               </Link>

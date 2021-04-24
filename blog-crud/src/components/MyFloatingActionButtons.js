@@ -1,34 +1,33 @@
 import React, { Component } from 'react';
 import M from 'materialize-css';
-// import 'materialize-css/dist/css/materialize.min.css';
-// var buttonsElems;
-// var toolTipElems;
-var instance;
+
+var instance; // a instance of ToolTips will be createad below
+
 export default class MyFloatingActionButtons extends Component {
   componentDidMount() {
-    // M.AutoInit();
+    // init action buttons
     let buttonsElems = document.querySelectorAll('.fixed-action-btn');
     M.FloatingActionButton.init(buttonsElems, {
       direction: 'left',
       // hoverEnabled: false
     });
-    // document.addEventListener('DOMContentLoaded', function () {
+
+    // init tool tips
     const options = {
       position: 'top',
     };
-    //   let toolTipElems = document.querySelectorAll('.tooltipped');
-    //   M.Tooltip.init(toolTipElems);
-    // });
     let toolTipElems = document.querySelectorAll('.tooltipped');
     M.Tooltip.init(toolTipElems, options);
+
+    // instance of tool tips to be destroyed on unmount
     instance = M.Tooltip.getInstance(document.querySelector('.tooltipped'));
   }
 
   componentWillUnmount() {
-    // var elem = document.querySelectorAll('.tooltipped');
-    // var instance = M.Tooltip.instance.destroy();
+    // instance must be stopped to prevent still rendering on route changes
     instance.destroy();
   }
+
   render() {
     return (
       <div className="fixed-action-btn">
@@ -44,7 +43,6 @@ export default class MyFloatingActionButtons extends Component {
           <li>
             <a
               className="btn tooltipped btn-floating red"
-              // data-position="top"
               data-tooltip="Inicio"
               href="https://www.google.com"
             >
