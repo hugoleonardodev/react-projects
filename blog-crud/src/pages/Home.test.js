@@ -1,9 +1,9 @@
 import { screen } from '@testing-library/react';
-import App from './App';
-import renderWithRouter from '../src/configs/renderWithRouter';
+import Home from './Home';
+import renderWithRouter from '../configs/renderWithRouter';
 
 test('renders learn react link', () => {
-  renderWithRouter(<App />);
+  renderWithRouter(<Home />, '/');
   const linkElement = screen.getByAltText(/1/i);
   expect(linkElement).toBeInTheDocument();
 });
