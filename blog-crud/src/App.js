@@ -3,12 +3,14 @@ import './App.css';
 import { Route, Switch } from 'react-router';
 import Home from './pages/Home';
 import Update from './pages/Update';
+import Create from './pages/Create';
 
 class App extends Component {
   render() {
     return (
       <Switch>
         <Route exact path="/" component={Home} />
+        <Route exact path="/create" component={Create} />
         <Route exact path="/update/:id" component={Update} />
       </Switch>
     );

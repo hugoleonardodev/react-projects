@@ -4,6 +4,7 @@ import 'materialize-css/dist/css/materialize.min.css';
 import { Link } from 'react-router-dom';
 import carouselInitialState from '../data/carouselInitialState';
 
+var instanceCarousel;
 export default class MyCarousel extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +26,7 @@ export default class MyCarousel extends Component {
     if (blog === null) {
       localStorage.setItem('blog', JSON.stringify(carouselInitialState));
     }
-    console.log(blog);
+    // console.log(blog);
     this.getLocalStorage();
   }
 
@@ -41,18 +42,19 @@ export default class MyCarousel extends Component {
     M.Carousel.init(this.Carousel, options);
   }
 
-  initMyFloatingButtons() {
-    const options = {
-      position: 'top',
-    };
-    let toolTipElems = document.querySelectorAll('.tooltipped');
-    M.Tooltip.init(toolTipElems, options);
-  }
-
   componentDidMount() {
     this.initMyCarousel();
-    this.initMyFloatingButtons();
     this.setLocalStorage();
+  }
+
+  componentWillUnmount() {
+    const allToolTipsElements = document.querySelectorAll('.tooltipped');
+    // console.log(allToolTipsElements);
+    allToolTipsElements.forEach((element) => {
+      instanceCarousel = M.Tooltip.getInstance(element);
+      // console.log(instanceCarousel);
+      instanceCarousel.destroy();
+    });
   }
 
   render() {

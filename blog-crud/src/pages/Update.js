@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import M from 'materialize-css';
+import MyImageInputText from '../components/MyImageInputText';
+import MyTitleInputText from '../components/MyTitleInputText';
 
 export default class Update extends Component {
   constructor(props) {
@@ -38,13 +40,14 @@ export default class Update extends Component {
     const blog = JSON.parse(localStorage.getItem('blog'));
     console.log(blog);
     const { title, route, image, words } = this.state;
+
     return (
       <div>
         <h1>{title}</h1>
         <div className="row">
           <form className="col s12">
             <div className="row">
-              <div className="input-field col s6">
+              {/* <div className="input-field col s6">
                 <i className="material-icons prefix">title</i>
                 <input
                   className="validate"
@@ -56,8 +59,16 @@ export default class Update extends Component {
                 <label className="active" htmlFor="title">
                   Title
                 </label>
-              </div>
-              <div className="input-field col s6">
+              </div> */}
+              <MyTitleInputText
+                title={title}
+                handleChange={this.handleChange}
+              />
+              <MyImageInputText
+                image={image}
+                handleChange={this.handleChange}
+              />
+              {/* <div className="input-field col s6">
                 <i className="material-icons prefix">insert_photo</i>
                 <input
                   className="validate"
@@ -69,7 +80,7 @@ export default class Update extends Component {
                 <label className="active" htmlFor="image">
                   Image URL
                 </label>
-              </div>
+              </div> */}
             </div>
             <div className="row">
               <div className="input-field col s12">

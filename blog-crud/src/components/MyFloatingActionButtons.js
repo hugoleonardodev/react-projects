@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import M from 'materialize-css';
+import { Link } from 'react-router-dom';
 
 var instance; // a instance of ToolTips will be createad below
 
@@ -41,13 +42,13 @@ export default class MyFloatingActionButtons extends Component {
         </a>
         <ul>
           <li>
-            <a
+            <Link
               className="btn tooltipped btn-floating red"
               data-tooltip="Inicio"
-              href="https://www.google.com"
+              to="/create"
             >
               <i className="material-icons">create</i>
-            </a>
+            </Link>
           </li>
           <li>
             <a
