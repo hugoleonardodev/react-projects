@@ -5,6 +5,9 @@ import MyTitleInputText from '../components/MyTitleInputText';
 import MyTextAreaInput from '../components/MyTextAreaInput';
 import MyBackToHomeBtn from '../components/MyBackToHomeBtn';
 
+import './Update.styles.css';
+import MyUpdateArticleBtn from '../components/MyUpdateArticleBtn';
+
 export default class Update extends Component {
   constructor(props) {
     super(props);
@@ -63,7 +66,7 @@ export default class Update extends Component {
             </div>
             <div className="row">
               <MyBackToHomeBtn />
-              {/* <MyCreateArticleBtn /> */}
+              <MyUpdateArticleBtn />
             </div>
           </form>
         </div>

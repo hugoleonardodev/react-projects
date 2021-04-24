@@ -33,7 +33,7 @@ export default class MyFloatingActionButtons extends Component {
     return (
       <div className="fixed-action-btn">
         <a
-          className="btn tooltipped btn-floating btn-large red"
+          className="btn tooltipped btn-floating btn-large grey darken-4"
           href="#menu"
           id="menu"
           data-tooltip="Menu"
@@ -43,8 +43,8 @@ export default class MyFloatingActionButtons extends Component {
         <ul>
           <li>
             <Link
-              className="btn tooltipped btn-floating red"
-              data-tooltip="Inicio"
+              className="btn tooltipped btn-floating green accent-3"
+              data-tooltip="Create"
               to="/create"
             >
               <i className="material-icons">create</i>
@@ -52,7 +52,7 @@ export default class MyFloatingActionButtons extends Component {
           </li>
           <li>
             <a
-              className="btn tooltipped btn-floating yellow darken-1"
+              className="btn tooltipped btn-floating blue-grey darken-1"
               href="https://www.google.com"
               data-tooltip="Buscar"
             >
@@ -61,20 +61,20 @@ export default class MyFloatingActionButtons extends Component {
           </li>
           <li>
             <a
-              className="btn tooltipped btn-floating green"
-              href="https://www.google.com"
-              data-tooltip="Editar"
-            >
-              <i className="material-icons">send</i>
-            </a>
-          </li>
-          <li>
-            <a
-              className="btn tooltipped btn-floating blue"
+              className="btn tooltipped btn-floating yellow darken-3"
               href="https://www.google.com"
               data-tooltip="Favoritos"
             >
               <i className="material-icons">star_border</i>
+            </a>
+          </li>
+          <li>
+            <a
+              className="btn tooltipped btn-floating purple darken-1"
+              href="https://www.google.com"
+              data-tooltip="About"
+            >
+              <i className="material-icons">info</i>
             </a>
           </li>
         </ul>

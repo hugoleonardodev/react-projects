@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 
 var instance; // a instance of ToolTips will be createad below
 
-export default class MyCreateArticleBtn extends Component {
+export default class MyUpdateArticleBtn extends Component {
   componentDidMount() {
     // init action buttons
     let buttonsElems = document.querySelectorAll('.fixed-action-btn');
@@ -33,10 +33,10 @@ export default class MyCreateArticleBtn extends Component {
     return (
       <div className="fixed-action-btn">
         <Link
-          className="btn tooltipped btn-floating btn-large green accent-3"
+          className="btn tooltipped btn-floating btn-large light-blue accent-3"
           to="/"
           // id="menu"
-          data-tooltip="Create"
+          data-tooltip="Update"
           style={{ right: '18px' }}
           // disabled
         >

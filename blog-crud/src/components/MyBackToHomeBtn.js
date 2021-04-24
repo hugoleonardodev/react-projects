@@ -31,7 +31,7 @@ export default class MyBackToHomeBtn extends Component {
 
   render() {
     return (
-      <div className="fixed-action-btn" style={{ left: '24px', right: 'none' }}>
+      <div className="fixed-action-btn" style={{ left: '24px' }}>
         <Link
           className="btn tooltipped btn-floating btn-large  grey darken-4"
           to="/"
