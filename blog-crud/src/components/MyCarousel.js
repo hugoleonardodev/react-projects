@@ -6,7 +6,6 @@ import two from '../assets/2.jpg';
 import three from '../assets/3.jpg';
 import four from '../assets/4.jpg';
 import five from '../assets/5.jpg';
-import FloatingActionButton from './FloatingActionButtons';
 
 export default class MyCarousel extends Component {
   componentDidMount() {
@@ -48,7 +47,6 @@ export default class MyCarousel extends Component {
             <img alt="5" src={five} />
           </a>
         </div>
-        <FloatingActionButton />
       </div>
     );
   }
