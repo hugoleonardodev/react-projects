@@ -34,7 +34,7 @@ export default class MyCreateArticleBtn extends Component {
       <div className="fixed-action-btn">
         <Link
           className="btn tooltipped btn-floating btn-large green accent-3"
-          to="/"
+          to="/create"
           // id="menu"
           data-tooltip="Create"
           style={{ right: '18px' }}

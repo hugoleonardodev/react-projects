@@ -51,31 +51,31 @@ export default class MyFloatingActionButtons extends Component {
             </Link>
           </li>
           <li>
-            <a
+            <Link
               className="btn tooltipped btn-floating blue-grey darken-1"
-              href="https://www.google.com"
-              data-tooltip="Buscar"
+              to="/list"
+              data-tooltip="List"
             >
               <i className="material-icons">search</i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               className="btn tooltipped btn-floating yellow darken-3"
-              href="https://www.google.com"
-              data-tooltip="Favoritos"
+              to="/favorites"
+              data-tooltip="Favorites"
             >
               <i className="material-icons">star_border</i>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
+            <Link
               className="btn tooltipped btn-floating purple darken-1"
-              href="https://www.google.com"
+              to="/about"
               data-tooltip="About"
             >
               <i className="material-icons">info</i>
-            </a>
+            </Link>
           </li>
         </ul>
       </div>
