@@ -1,0 +1,14 @@
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(30px + 2vmin);
+  font-weight: 500;
+}
+
+.description {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(20px + 2vmin);
+}
