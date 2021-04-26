@@ -27,8 +27,9 @@ export default class Read extends Component {
   }
   render() {
     const { history } = this.props;
+    console.log(history.location.pathname);
     const { articles } = this.state;
-    console.log(parseInt(history.location.pathname.split('/')[2]));
+    // console.log(parseInt(history.location.pathname.split('/')[2]));
     // const { title, image, words } = articles[
     //   parseInt(history.location.pathname.split('/')[2])
     // ];

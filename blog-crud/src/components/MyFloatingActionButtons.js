@@ -37,6 +37,7 @@ export default class MyFloatingActionButtons extends Component {
           href="#menu"
           id="menu"
           data-tooltip="Menu"
+          data-testid="floating-menu"
         >
           <i className="large material-icons">menu</i>
         </a>
@@ -44,6 +45,7 @@ export default class MyFloatingActionButtons extends Component {
           <li>
             <Link
               className="btn tooltipped btn-floating green accent-3"
+              data-testid="floating-create"
               data-tooltip="Create"
               to="/create"
             >
@@ -53,8 +55,9 @@ export default class MyFloatingActionButtons extends Component {
           <li>
             <Link
               className="btn tooltipped btn-floating blue-grey darken-1"
-              to="/list"
+              data-testid="floating-list"
               data-tooltip="List"
+              to="/list"
             >
               <i className="material-icons">search</i>
             </Link>
@@ -62,8 +65,9 @@ export default class MyFloatingActionButtons extends Component {
           <li>
             <Link
               className="btn tooltipped btn-floating yellow darken-3"
-              to="/favorites"
               data-tooltip="Favorites"
+              data-testid="floating-favorites"
+              to="/favorites"
             >
               <i className="material-icons">star_border</i>
             </Link>
@@ -71,8 +75,9 @@ export default class MyFloatingActionButtons extends Component {
           <li>
             <Link
               className="btn tooltipped btn-floating purple darken-1"
-              to="/about"
               data-tooltip="About"
+              data-testid="floating-about"
+              to="/about"
             >
               <i className="material-icons">info</i>
             </Link>

@@ -8,14 +8,17 @@ var instanceCarousel;
 export default class MyCarousel extends Component {
   constructor(props) {
     super(props);
+
     this.state = {
       articles: [],
     };
+
     this.getLocalStorage = this.getLocalStorage.bind(this);
   }
 
   getLocalStorage() {
     const blog = JSON.parse(localStorage.getItem('blog'));
+
     this.setState({
       articles: blog.articles,
     });
@@ -23,6 +26,7 @@ export default class MyCarousel extends Component {
 
   setLocalStorage() {
     const blog = JSON.parse(localStorage.getItem('blog'));
+
     if (blog === null) {
       localStorage.setItem('blog', JSON.stringify(carouselInitialState));
     }
@@ -39,6 +43,7 @@ export default class MyCarousel extends Component {
         console.log('New Slide'); // callback when click on new slide
       },
     };
+
     M.Carousel.init(this.Carousel, options);
   }
 
@@ -72,6 +77,7 @@ export default class MyCarousel extends Component {
               <Link
                 className="tooltipped carousel-item"
                 data-tooltip={article.title}
+                data-testid={`update-${index}`}
                 to={article.route}
                 // key={index} not rendering when key is enabled
               >

@@ -8,6 +8,7 @@ import MyFilterInputText from '../components/MyFilterInputText';
 import './Favorites.styles.css';
 
 let position = -1;
+
 export default class Favorites extends Component {
   constructor(props) {
     super(props);
@@ -36,7 +37,7 @@ export default class Favorites extends Component {
   render() {
     const { favorites, rows, cols } = this.state;
 
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div className="articles-list">
         <MyFilterInputText />
@@ -45,7 +46,7 @@ export default class Favorites extends Component {
             return (
               <div className="row" key={r}>
                 {cols.map((col, j) => {
-                  console.log(position);
+                  // console.log(position);
                   if (position >= favorites.length - 1) {
                     return null;
                   }

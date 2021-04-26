@@ -30,11 +30,13 @@ export default class MyCreateArticleBtn extends Component {
   }
 
   render() {
+    const { createArticle } = this.props;
     return (
       <div className="fixed-action-btn">
         <Link
           className="btn tooltipped btn-floating btn-large green accent-3"
-          to="/create"
+          onClick={createArticle}
+          to="/created"
           // id="menu"
           data-tooltip="Create"
           style={{ right: '18px' }}

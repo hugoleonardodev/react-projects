@@ -22,6 +22,9 @@ export default class MyReadFloatingActionButtons extends Component {
 
     // instance of tool tips to be destroyed on unmount
     instance = M.Tooltip.getInstance(document.querySelector('.tooltipped'));
+
+    var modalElems = document.querySelectorAll('.modal');
+    M.Modal.init(modalElems);
   }
 
   componentWillUnmount() {
@@ -65,23 +68,27 @@ export default class MyReadFloatingActionButtons extends Component {
           <li>
             <button
               className="btn tooltipped btn-floating yellow darken-3"
-              to="/favorites"
+              // to="/favorites"
               data-tooltip="Bookmark"
               onClick={() =>
-                M.toast({ html: 'I am a toast!', classes: 'round' })
+                M.toast({
+                  html: 'Successfuly added to favorites!',
+                  classes: 'round',
+                })
               }
+              data-testid="read-bookmark"
             >
               <i className="material-icons">bookmark_border</i>
             </button>
           </li>
           <li>
-            <button
-              className="btn tooltipped btn-floating deep-orange accent-3"
-              to="/"
+            <a
+              className="btn tooltipped btn-floating modal-trigger deep-orange accent-3"
+              href="#delete"
               data-tooltip="Delete"
             >
               <i className="material-icons">delete_forever</i>
-            </button>
+            </a>
           </li>
         </ul>
       </div>

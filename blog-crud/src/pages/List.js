@@ -36,7 +36,7 @@ export default class List extends Component {
   render() {
     const { articles, rows, cols } = this.state;
 
-    console.log(this.state);
+    // console.log(this.state);
     return (
       <div className="articles-list">
         <MyFilterInputText />
@@ -45,7 +45,7 @@ export default class List extends Component {
             return (
               <div className="row" key={r}>
                 {cols.map((col, j) => {
-                  console.log(position);
+                  // console.log(position);
                   if (position >= articles.length - 1) {
                     return null;
                   }

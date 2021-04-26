@@ -13,7 +13,7 @@ export default class Update extends Component {
     super(props);
 
     const blog = JSON.parse(localStorage.getItem('blog'));
-    const history = this.props;
+    const { history } = this.props;
     const { title, route, image, words } = blog.articles[
       parseInt(history.location.pathname.split('/')[2] - 1)
     ];
@@ -29,7 +29,7 @@ export default class Update extends Component {
   }
 
   handleChange(event) {
-    console.log(event);
+    // console.log(event);
     this.setState({
       [event.target.name]: event.target.value,
     });

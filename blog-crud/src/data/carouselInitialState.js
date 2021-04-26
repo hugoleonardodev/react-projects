@@ -2,7 +2,6 @@ const carouselInitialState = {
   favorites: [
     {
       title: 'Article Four',
-      route: '/update/4',
       image:
         'https://images.hdqwalls.com/download/pixel-landscape-dt-1600x1200.jpg',
       words: `
@@ -19,7 +18,6 @@ const carouselInitialState = {
     },
     {
       title: 'Article Five',
-      route: '/update/5',
       image: 'https://eskipaper.com/images/beautiful-winter-landscape-8.jpg',
       words: `
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus commodo velit id pretium. Cras sit amet lacus leo. Morbi tincidunt in ante a rhoncus. Sed eu ornare mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In aliquet justo id semper porta. Etiam vel consequat urna. Pellentesque cursus nunc augue, non laoreet ipsum consequat at. Suspendisse rhoncus lacinia leo, sit amet aliquet tortor dignissim eu.
@@ -37,7 +35,6 @@ const carouselInitialState = {
   articles: [
     {
       title: 'Article One',
-      route: '/update/1',
       image: 'https://eskipaper.com/images/landscape-photos-21.jpg',
       words: `
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus commodo velit id pretium. Cras sit amet lacus leo. Morbi tincidunt in ante a rhoncus. Sed eu ornare mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In aliquet justo id semper porta. Etiam vel consequat urna. Pellentesque cursus nunc augue, non laoreet ipsum consequat at. Suspendisse rhoncus lacinia leo, sit amet aliquet tortor dignissim eu.
@@ -53,7 +50,6 @@ const carouselInitialState = {
     },
     {
       title: 'Article Two',
-      route: '/update/2',
       image:
         'https://www.wallpapertip.com/wmimgs/6-62055_nature-pictures-of-oil-paintings-landscape.jpg',
       words: `
@@ -70,7 +66,6 @@ const carouselInitialState = {
     },
     {
       title: 'Article Three',
-      route: '/update/3',
       image:
         'https://www.teahub.io/photos/full/54-547365_beautiful-landscape-wallpaper.jpg',
       words: `
@@ -87,7 +82,6 @@ const carouselInitialState = {
     },
     {
       title: 'Article Four',
-      route: '/update/4',
       image:
         'https://images.hdqwalls.com/download/pixel-landscape-dt-1600x1200.jpg',
       words: `
@@ -104,7 +98,6 @@ const carouselInitialState = {
     },
     {
       title: 'Article Five',
-      route: '/update/5',
       image: 'https://eskipaper.com/images/beautiful-winter-landscape-8.jpg',
       words: `
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus commodo velit id pretium. Cras sit amet lacus leo. Morbi tincidunt in ante a rhoncus. Sed eu ornare mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In aliquet justo id semper porta. Etiam vel consequat urna. Pellentesque cursus nunc augue, non laoreet ipsum consequat at. Suspendisse rhoncus lacinia leo, sit amet aliquet tortor dignissim eu.
@@ -120,7 +113,6 @@ const carouselInitialState = {
     },
     {
       title: 'Article One',
-      route: '/update/1',
       image: 'https://eskipaper.com/images/landscape-photos-21.jpg',
       words: `
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus commodo velit id pretium. Cras sit amet lacus leo. Morbi tincidunt in ante a rhoncus. Sed eu ornare mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In aliquet justo id semper porta. Etiam vel consequat urna. Pellentesque cursus nunc augue, non laoreet ipsum consequat at. Suspendisse rhoncus lacinia leo, sit amet aliquet tortor dignissim eu.
@@ -136,7 +128,6 @@ const carouselInitialState = {
     },
     {
       title: 'Article Two',
-      route: '/update/2',
       image:
         'https://www.wallpapertip.com/wmimgs/6-62055_nature-pictures-of-oil-paintings-landscape.jpg',
       words: `
@@ -153,7 +144,6 @@ const carouselInitialState = {
     },
     {
       title: 'Article Three',
-      route: '/update/3',
       image:
         'https://www.teahub.io/photos/full/54-547365_beautiful-landscape-wallpaper.jpg',
       words: `
@@ -170,7 +160,6 @@ const carouselInitialState = {
     },
     {
       title: 'Article Four',
-      route: '/update/4',
       image:
         'https://images.hdqwalls.com/download/pixel-landscape-dt-1600x1200.jpg',
       words: `
@@ -187,7 +176,6 @@ const carouselInitialState = {
     },
     {
       title: 'Article Five',
-      route: '/update/5',
       image: 'https://eskipaper.com/images/beautiful-winter-landscape-8.jpg',
       words: `
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed rhoncus commodo velit id pretium. Cras sit amet lacus leo. Morbi tincidunt in ante a rhoncus. Sed eu ornare mi. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In aliquet justo id semper porta. Etiam vel consequat urna. Pellentesque cursus nunc augue, non laoreet ipsum consequat at. Suspendisse rhoncus lacinia leo, sit amet aliquet tortor dignissim eu.

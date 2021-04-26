@@ -26,17 +26,35 @@ export default class Create extends Component {
     };
 
     this.handleChange = this.handleChange.bind(this);
+    this.createArticle = this.createArticle.bind(this);
   }
 
   handleChange(event) {
-    console.log(event);
+    // console.log(event);
     this.setState({
       [event.target.name]: event.target.value,
     });
   }
 
+  createArticle(event) {
+    event.preventDefault();
+    console.log(this.state.title);
+    const { articles, favorites } = JSON.parse(localStorage.getItem('blog'));
+    const { title, image, words } = this.state;
+    const newArticle = { title, image, words };
+    // articles.push({ title, image, words });
+    localStorage.setItem(
+      'blog',
+      JSON.stringify({
+        articles: [...articles, newArticle],
+        favorites,
+      }),
+    );
+  }
+
   componentDidMount() {
     // resizing text area accordly with words size
+    console.log(this.state);
     M.textareaAutoResize(document.querySelector('.materialize-textarea'));
   }
   render() {
@@ -68,7 +86,7 @@ export default class Create extends Component {
             </div>
             <div className="row">
               <MyBackToHomeBtn />
-              <MyCreateArticleBtn />
+              <MyCreateArticleBtn createArticle={this.createArticle} />
             </div>
           </form>
         </div>
